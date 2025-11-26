@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Tracker - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #7b42f6;
+      --radius: 14px;
+      --shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      animation: fadeIn .8s ease-in-out;
+      text-align: center;
+      color: #fff;
+    }
+
+    .container {
+      animation: slideUp .7s ease;
+    }
+
+    img {
+      width: 120px;
+      margin-bottom: 20px;
+      animation: bounce 2s infinite;
+    }
+
+    .btn {
+      background: #fff;
+      color: var(--primary);
+      padding: 12px 20px;
+      border-radius: var(--radius);
+      display: inline-block;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+      margin: 10px;
+      transition: .2s;
+      text-decoration: none;
+    }
+    .btn:hover { transform: scale(1.05); background: #eee; }
+
+    @keyframes fadeIn { from {opacity:0;} }
+    @keyframes slideUp { from {opacity:0; transform:translateY(20px);} }
+    @keyframes bounce { 50% {transform: translateY(-10px);} }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png">
+    <h1>💰 Daily Expense Tracker</h1>
+    <p>Track your daily spending and grow your savings wisely!</p>
+
+    <a href="auth.html" class="btn">Get Started</a>
+    <a href="saving.html" class="btn">💡 Savings Ideas</a>
+  </div>
+</body>
+</html>
