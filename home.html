@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Expense Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --primary:#7b42f6; --radius:14px; }
+
+    body{
+      font-family:Poppins, sans-serif;
+      background:linear-gradient(135deg,#a18cd1,#fbc2eb);
+      text-align:center;
+      padding-top:80px;
+      color:white;
+      animation: fadeIn .8s;
+    }
+
+    .btn{
+      padding:12px 20px;
+      background:white;
+      color:var(--primary);
+      font-weight:bold;
+      text-decoration:none;
+      border-radius:var(--radius);
+      box-shadow:0 6px 20px rgba(0,0,0,0.15);
+      margin:10px;
+      transition:.2s;
+    }
+    .btn:hover{
+      transform:scale(1.05);
+      background:#f0f0f0;
+    }
+
+    @keyframes fadeIn { from{opacity:0;} }
+  </style>
+</head>
+
+<body>
+
+  <h1 id="welcome"></h1>
+  <p>Track your expenses and manage your budget easily.</p>
+
+  <a href="tracker.html" class="btn">Go to Expense Tracker</a>
+  <a href="index.html" class="btn" onclick="logout()">Logout</a>
+
+<script>
+  const user = localStorage.getItem("currentUser");
+  if(!user) window.location.href = "auth.html";
+  document.getElementById("welcome").innerText = "Welcome, " + user + "!";
+
+  function logout(){
+    localStorage.removeItem("currentUser");
+  }
+</script>
+
+</body>
+</html>
