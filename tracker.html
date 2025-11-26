@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    :root {
+      --primary:#8ca6db;
+      --accent:#6a11cb;
+      --radius:14px;
+      --shadow:0 6px 20px rgba(0,0,0,.15);
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #b993d6, #8ca6db);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    h1 { margin-top: 20px; color:#fff; }
+
+    .container {
+      background: white;
+      width: 90%;
+      max-width: 900px;
+      border-radius: var(--radius);
+      padding: 25px;
+      margin: 30px auto;
+      box-shadow: var(--shadow);
+      animation: fadeIn .8s;
+    }
+
+    input, select, button {
+      padding: 12px;
+      margin: 5px;
+      border-radius: var(--radius);
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition:.2s;
+    }
+    button:hover { background:#7b94d1; transform:scale(1.05); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th {
+      background: var(--primary);
+      color: white;
+      padding: 12px;
+    }
+
+    td {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .edit-btn { background:#ffbb33; }
+    .delete-btn { background:#ff4444; }
+    
+    .clear-btn { background:#e74c3c; margin-top:10px; }
+
+    .back-btn {
+      background: var(--accent);
+      color: white;
+      padding: 10px 15px;
+      border-radius: var(--radius);
+      display: inline-block;
+      margin: 20px auto;
+      text-decoration:none;
+      transition:.2s;
+    }
+    .back-btn:hover { transform:scale(1.05); }
+
+    .summary-box {
+      background:#f8f8f8;
+      padding: 15px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    #search {
+      width: 80%;
+      max-width: 300px;
+      padding: 12px;
+      border-radius: var(--radius);
+      border:1px solid #aaa;
+      margin-bottom: 10px;
+    }
+
+    @keyframes fadeIn { from{opacity:0;} }
+  </style>
+</head>
+
+<body>
+
+  <h1>💰 Expense Tracker</h1>
+
+  <div class="container">
+    <form id="expense-form">
+      <input type="text" id="name" placeholder="Expense Name" required />
+      <input type="number" id="amount" placeholder="Amount (₹)" required />
+      <select id="category">
+        <option>Food</option>
+        <option>Travel</option>
+        <option>Shopping</option>
+        <option>Bills</option>
+        <option>Other</option>
+      </select>
+      <button type="submit">Add</button>
+    </form>
+
+    <input type="text" id="search" placeholder="Search expenses..." />
+    <select id="filterCategory">
+      <option value="All">All Categories</option>
+      <option>Food</option>
+      <option>Travel</option>
+      <option>Shopping</option>
+      <option>Bills</option>
+      <option>Other</option>
+    </select>
+
+    <table id="expense-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Amount (₹)</th>
+          <th>Month</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <button class="clear-btn" onclick="clearAll()">🧹 Clear All Expenses</button>
+
+    <div id="exportButtons">
+      <button onclick="exportJSON()">📄 Export JSON</button>
+      <button onclick="exportCSV()">📄 Export CSV</button>
+    </div>
+
+    <div class="summary-box" id="summaryBox">Total: ₹0</div>
+  </div>
+
+  <div class="container">
+    <h2>📈 Expense Chart</h2>
+    <canvas id="chart"></canvas>
+  </div>
+
+  <a href="home.html" class="back-btn">⬅ Back to Home</a>
+
+<script>
+/* YOUR EXISTING JS — UNCHANGED */
+</script>
+
+</body>
+</html>
